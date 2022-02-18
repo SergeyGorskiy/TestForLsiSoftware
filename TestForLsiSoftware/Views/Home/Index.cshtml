@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model TestForLsiSoftware.Models.ViewModels.RaportViewModel
+
+<div class="col-3">
+    <form asp-action="Index" method="get">
+        <div class="form-group">
+            <label>Local</label>
+            <select name="selectedLocal" class="form-control">
+                <option disabled selected>Select Local</option>
+                @foreach (string local in Model.Locals)
+                {
+                    <option selected="@(local == Model.Locals.ToString())">@local</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Start of range</label>
+            <input class="form-control" asp-for="DateTimeOfCreate" name="startOfRange" />
+        </div>
+        <div class="form-group">
+            <label>End or range</label>
+            <input class="form-control" asp-for="DateTimeOfCreate" name="endOfRange" />
+        </div>
+        <button class="btn btn-primary" type="submit">Select</button>
+    </form>
+</div>
+<div class="col-9">
+    <table class="table table-sm table-bordered table-striped">
+        <thead>
+        <tr><th>Name</th><th>Date</th><th>Time</th><th>Creator</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+            @foreach (Raport r in Model.Raports)
+            {
+                <tr>
+                    <td>@r.Name</td>
+                    <td>@r.DateTimeOfCreate.ToShortDateString()</td>
+                    <td>@r.DateTimeOfCreate.ToShortTimeString()</td>
+                    <td>@r.Creator</td>
+                    <td>@r.Local</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

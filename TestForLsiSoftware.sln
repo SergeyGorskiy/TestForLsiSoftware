@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForLsiSoftware", "TestForLsiSoftware\TestForLsiSoftware.csproj", "{427CA8B4-72BA-46B3-BBFA-1464116A0693}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{427CA8B4-72BA-46B3-BBFA-1464116A0693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{427CA8B4-72BA-46B3-BBFA-1464116A0693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{427CA8B4-72BA-46B3-BBFA-1464116A0693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{427CA8B4-72BA-46B3-BBFA-1464116A0693}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F52B3C6-04E2-4F8B-B511-D1F92F222947}
+	EndGlobalSection
+EndGlobal
