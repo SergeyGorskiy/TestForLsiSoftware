@@ -17,7 +17,9 @@ namespace TestForLsiSoftware.Controllers
             _context = context;
         }
 
-        public IActionResult Index([FromQuery] string selectedLocal, [FromQuery] DateTime startOfRange, [FromQuery] DateTime endOfRange)
+        public IActionResult Index([FromQuery] string selectedLocal, 
+                                   [FromQuery] DateTime startOfRange, 
+                                   [FromQuery] DateTime endOfRange)
         {
             if (selectedLocal is null)
             {
@@ -33,7 +35,8 @@ namespace TestForLsiSoftware.Controllers
                 {
                     return View(new RaportViewModel
                     {
-                        Raports = _context.Raports.Where(r => r.DateTimeOfCreate >= startOfRange && r.DateTimeOfCreate <= endOfRange),
+                        Raports = _context.Raports.Where(r => r.DateTimeOfCreate >= startOfRange 
+                                                                && r.DateTimeOfCreate <= endOfRange),
                         Locals = _context.Raports.Select(l => l.Local)
                     });
                 }
@@ -41,11 +44,24 @@ namespace TestForLsiSoftware.Controllers
             }
             else
             {
-                return View(new RaportViewModel
+                if (startOfRange == endOfRange)
                 {
-                    Raports = _context.Raports.Where(r => r.Local == selectedLocal),
-                    Locals = _context.Raports.Select(l => l.Local)
-                });
+                    return View(new RaportViewModel
+                    {
+                        Raports = _context.Raports.Where(r => r.Local == selectedLocal),
+                        Locals = _context.Raports.Select(l => l.Local)
+                    });
+                }
+                else
+                {
+                    return View(new RaportViewModel
+                    {
+                        Raports = _context.Raports.Where(r => r.Local == selectedLocal
+                                                              && r.DateTimeOfCreate >= startOfRange 
+                                                              && r.DateTimeOfCreate <= endOfRange),
+                        Locals = _context.Raports.Select(l => l.Local)
+                    });
+                }
             }
             
         }
